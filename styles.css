@@ -1,132 +1,133 @@
-/* Global Colors */
+/* GENERAL */
 body {
-    margin: 0;
-    background: #0e0e0e;
     font-family: Arial, sans-serif;
-    color: white;
+    margin: 0;
+    background: #f4f6fc;
+    color: #111;
 }
 
-/* Navigation */
+.section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    background: rgba(20, 20, 20, 0.9);
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-    backdrop-filter: blur(6px);
+    padding: 20px 10%;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .logo {
-    font-size: 18px;
     font-weight: bold;
-}
-.logo span {
-    font-size: 12px;
-    opacity: 0.7;
+    font-size: 20px;
 }
 
-.nav-links {
-    list-style: none;
+.navbar ul {
     display: flex;
-    gap: 25px;
+    list-style: none;
 }
 
-.nav-links a {
-    color: white;
+.navbar ul li a {
+    margin: 0 20px;
     text-decoration: none;
-    font-size: 16px;
-    transition: 0.3s;
-}
-.nav-links a:hover {
-    color: #4db3ff;
-}
-
-/* Sections */
-.section {
-    padding: 120px 60px;
-    max-width: 900px;
-    margin: auto;
-}
-
-h1, h2 {
-    color: #4db3ff;
-}
-.highlight {
-    color: #4db3ff;
+    color: #111;
     font-weight: bold;
 }
 
-/* Buttons */
-.btn-primary {
-    padding: 12px 22px;
-    background: #4db3ff;
-    color: white;
-    border-radius: 25px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.btn-primary:hover {
-    background: #1f8cd6;
+.navbar ul li a:hover {
+    color: #007bff;
 }
 
-.btn-dark {
-    padding: 12px 22px;
-    background: black;
-    color: white;
-    border-radius: 25px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.btn-dark:hover {
-    background: #333;
-}
-
-/* Project Cards */
+/* PROJECT CARDS */
 .project-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
+    background: white;
+    padding: 30px;
     border-radius: 12px;
-    margin-bottom: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s;
+    margin: 20px auto;
+    width: 70%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform .3s ease, box-shadow .3s;
 }
+
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.15);
 }
 
-/* Contact form */
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 6px;
+/* BUTTONS */
+.btn {
+    background: #007bff;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: inline-block;
+    color: white;
+    margin: 10px;
+    text-decoration: none;
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 25px;
+.btn.black {
     background: #111;
 }
 
-/* Animations */
-.fade-in { animation: fadeIn 1.2s ease; }
-.fade-in-up { animation: fadeUp 1.2s ease; }
-.slide-in { animation: slideIn 1.2s ease; }
+/* CHATBOT */
+#chatbot-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #007bff;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 22px;
+}
 
-@keyframes fadeIn {
-    from { opacity:0; }
-    to { opacity:1; }
+#chatbot-box {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 300px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
 }
-@keyframes fadeUp {
-    from { opacity:0; transform: translateY(40px); }
-    to { opacity:1; transform: translateY(0); }
+
+#chat-header {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
 }
-@keyframes slideIn {
-    from { opacity:0; transform: translateX(-40px); }
-    to { opacity:1; transform: translateX(0); }
+
+#chat-body {
+    height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#chat-input {
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    outline: none;
+}
+
+/* ANIMATIONS */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .8s ease-out;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
