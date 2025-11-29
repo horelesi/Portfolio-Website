@@ -1,228 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tolulope Orelesi — Network Security Engineer</title>
-  <meta name="description" content="Portfolio of Tolulope Orelesi, Network Security Engineer." />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tolulope Orelesi | Network Security Engineer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <!-- HEADER / NAV -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <div class="brand">
-        <span class="brand-name">Tolulope Orelesi</span>
-        <span class="brand-role">Network Security Engineer</span>
-      </div>
-      <button id="menuToggle" aria-label="Toggle navigation">☰</button>
-      <nav>
-        <ul id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
+    <!-- Navigation -->
+    <nav class="navbar fade-in">
+        <div class="logo">TOLULOPE ORELESI<br><span>Network Security Engineer</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-      </nav>
-    </div>
-  </header>
+    </nav>
 
-  <main>
-    <!-- HERO -->
-    <section id="home" class="section hero reveal">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <p class="badge">Network Security • Cloud • Firewalls</p>
-          <h1>Securing networks with <span>practical hands-on skills</span>.</h1>
-          <p class="lead">
-            I’m a Network Security Engineer focused on VPNs, next-generation firewalls, and
-            cloud security. Explore my projects, resume, and contact details below.
-          </p>
-          <div class="hero-buttons">
-            <a href="#projects" class="btn primary">View Projects</a>
-            <a href="#resume" class="btn ghost">View Resume</a>
-          </div>
-          <p class="hero-note">
-            Currently working with Palo Alto firewalls, GlobalProtect VPN, AWS security, and more.
-          </p>
-        </div>
+    <!-- HOME SECTION -->
+    <section id="home" class="section home-section fade-in-up">
+        <h1>Hello, I'm <span class="highlight">Tolulope Orelesi</span></h1>
+        <p>A passionate Network Security Engineer with hands-on experience in  
+           firewalls, VPNs, routing, cloud security, and threat analysis.</p>
 
-        <div class="hero-side">
-          <div class="hero-card">
-            <h3>Scan my portfolio</h3>
-            <p>Open this site quickly on your phone.</p>
-            <div id="qrcode" aria-label="QR code to this website"></div>
-          </div>
-          <div class="hero-card small">
-            <p><strong>Quick facts</strong></p>
-            <ul>
-              <li>CompTIA Security+ certified</li>
-              <li>B.Sc. Computer Technology – Bowie State</li>
-              <li>Network Security Engineer at WMATA</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        <a href="#projects" class="btn-primary">View My Work</a>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section reveal">
-      <div class="container">
-        <h2>About</h2>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section fade-in-up">
+        <h2>About Me</h2>
         <p>
-          I’m Tolulope Orelesi, a Network Security Engineer with a passion for emerging solutions in network security.
-          I specialize in configuring, troubleshooting, and optimizing next-generation firewalls, VPNs, and security
-          appliances to protect both on-prem and cloud environments.
-        </p>
-        <p>
-          I currently support the Washington Metropolitan Area Transit Authority (WMATA), where I work with Palo Alto
-          Networks firewalls, GlobalProtect VPN, and network segmentation using VLANs. I also have experience with AWS
-          security groups, NACLs, BGP, OSPF, NAT, and hands-on traffic inspection using tools like Wireshark.
+            I am a Network Security Engineer skilled in securing cloud and on-prem environments.  
+            My strengths include firewall configuration (Palo Alto), VPN setup,  
+            traffic inspection, packet analysis, and incident response.
         </p>
 
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h3>Core Security</h3>
-            <ul>
-              <li>Palo Alto NGFW & Security Profiles</li>
-              <li>GlobalProtect, IPsec, SSL VPN</li>
-              <li>SSL decryption & traffic inspection</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Networking</h3>
-            <ul>
-              <li>TCP/IP, BGP, OSPF</li>
-              <li>VLANs, subnets, NAT</li>
-              <li>Routing and segmentation</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Cloud & Tools</h3>
-            <ul>
-              <li>AWS VPC, Security Groups, NACLs</li>
-              <li>Wireshark packet analysis</li>
-              <li>Linux, Windows Server</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        <p>
+            I enjoy building secure architectures and continuously improving  
+            network reliability, performance, and resilience.
+        </p>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section alt reveal">
-      <div class="container">
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section fade-in-up">
         <h2>Projects</h2>
-        <p class="section-intro">
-          A sample of work and practice labs that show how I think about security, networking, and automation.
-        </p>
-        <div id="projectGrid" class="project-grid"><!-- filled by projects.js --></div>
-        <p class="hint">
-          Each card links to GitHub and, if available, a live demo.
-        </p>
-      </div>
+
+        <div class="project-card slide-in">
+            <h3>Campus Helper Chatbot</h3>
+            <p>IBM Watson Assistant chatbot hosted on GitHub Pages for campus FAQs.</p>
+            <a href="https://github.com/horelesi/Chatbot-website" target="_blank" class="btn-primary">GitHub</a>
+            <a href="https://horelesi.github.io/Chatbot-website/" target="_blank" class="btn-dark">Live Demo</a>
+        </div>
+
+        <div class="project-card slide-in">
+            <h3>Portfolio Website</h3>
+            <p>A modern responsive portfolio featuring animations, a chatbot, and QR code access.</p>
+            <a href="https://github.com/horelesi/Portfolio-Website" target="_blank" class="btn-primary">GitHub</a>
+            <a href="https://horelesi.github.io/Portfolio-Website/" target="_blank" class="btn-dark">Live Demo</a>
+        </div>
+
+        <div class="project-card slide-in">
+            <h3>Network Security Lab (Concept)</h3>
+            <p>Hands-on practice using Palo Alto, VPNs, firewall rules,  
+               threat monitoring, and Wireshark packet inspection.</p>
+            <a href="https://github.com/horelesi" target="_blank" class="btn-primary">GitHub</a>
+        </div>
     </section>
 
-    <!-- RESUME -->
-    <section id="resume" class="section reveal">
-      <div class="container">
+    <!-- RESUME SECTION -->
+    <section id="resume" class="section fade-in-up">
         <h2>Resume</h2>
-        <p>You can view or download my latest resume below.</p>
-        <div class="resume-actions">
-          <a class="btn primary" href="Tolulope Orelesi (1).pdf" target="_blank" rel="noopener">
-            View Resume (PDF)
-          </a>
-          <a class="btn dark" href="Tolulope Orelesi (1).pdf" download>
-            Download Resume
-          </a>
-        </div>
+        <p>View or download my latest resume below.</p>
 
-        <div class="resume-columns">
-          <div>
-            <h3>Education</h3>
-            <ul>
-              <li>B.Sc. in Computer Technology – Bowie State University (2025)</li>
-              <li>A.S. in Information Technology – Prince George’s Community College (2020)</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Certification</h3>
-            <ul>
-              <li>CompTIA Security+</li>
-            </ul>
-          </div>
-        </div>
+        <a href="Tolulope Orelesi (1).pdf" target="_blank" class="btn-primary">View Resume (PDF)</a>
+        <a href="Tolulope Orelesi (1).pdf" download class="btn-dark">Download Resume</a>
 
-        <h3>Portfolio QR Code</h3>
-        <p>Scan the QR code on the Home section to open this portfolio on your phone.</p>
-      </div>
+        <h3>Education</h3>
+        <ul>
+            <li>B.Sc. in Computer Technology – Bowie State University</li>
+            <li>A.S. in Information Technology – Prince George’s Community College</li>
+        </ul>
+
+        <h3>Certification</h3>
+        <p>CompTIA Security+</p>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section alt reveal">
-      <div class="container">
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section fade-in-up">
         <h2>Contact</h2>
-        <p>
-          You can contact me using this form or by emailing
-          <a href="mailto:Orelesitolulope@gmail.com">Orelesitolulope@gmail.com</a>.
+        <p>You can contact me here or email me at  
+           <a href="mailto:Orelesitolulope@gmail.com">Orelesitolulope@gmail.com</a>
         </p>
 
-        <form id="contactForm" action="mailto:Orelesitolulope@gmail.com" method="POST" enctype="text/plain">
-          <div class="form-grid">
-            <label>
-              Name
-              <input name="name" required />
-            </label>
-            <label>
-              Email
-              <input type="email" name="email" required />
-            </label>
-          </div>
-          <label>
-            Message
-            <textarea name="message" rows="5" required></textarea>
-          </label>
-          <button class="btn primary" type="submit">Send</button>
+        <form class="contact-form">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Message"></textarea>
+            <button class="btn-primary">Send</button>
         </form>
-
-        <p class="hint">
-          You can also chat with my portfolio bot using the 💬 button in the bottom-right corner.
-        </p>
-      </div>
     </section>
-  </main>
 
-  <!-- CHATBOT FLOATING BUTTON -->
-  <button id="chatToggle" class="chat-fab" aria-label="Open chatbot">💬</button>
+    <footer class="footer fade-in">
+        © 2025 Tolulope Orelesi • <a href="https://github.com/horelesi" target="_blank">GitHub</a>
+    </footer>
 
-  <div id="chatPanel" class="chat-panel" aria-hidden="true">
-    <header class="chat-header">
-      <strong>Portfolio Bot</strong>
-      <button id="chatClose" aria-label="Close chatbot">×</button>
-    </header>
-    <div id="chatBody" class="chat-body" role="log" aria-live="polite"></div>
-    <form id="chatForm" class="chat-input" autocomplete="off">
-      <input id="chatText" placeholder="Ask about my skills, projects, or experience…" aria-label="Chat message" />
-      <button type="submit">Send</button>
-    </form>
-  </div>
+    <script src="main.js"></script>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>
-        © <span id="year"></span> Tolulope Orelesi ·
-        <a href="https://github.com/horelesi" target="_blank" rel="noopener">GitHub</a>
-      </small>
-    </div>
-  </footer>
+    <!-- IBM Watson Chatbot -->
+    <script>
+    window.watsonAssistantChatOptions = {
+        integrationID: "968183e2-b493-4213-a891-7b1096f6cf3b",
+        region: "us-east",
+        serviceInstanceID: "6b561148-1cf8-4ab5-bc0a-ce8de60a6465",
+        onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+        document.head.appendChild(t);
+    });
+    </script>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script src="projects.js"></script>
-  <script src="chatbot.js"></script>
-  <script src="main.js"></script>
 </body>
 </html>
 
