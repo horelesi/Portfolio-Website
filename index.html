@@ -1,176 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tolulope Orelesi — Network Security Engineer</title>
-  <meta name="description" content="Portfolio of Tolulope Orelesi, Network Security Engineer." />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tolulope Orelesi – Network Security Engineer</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <!-- Top navigation -->
-  <header class="site-header">
-    <nav class="nav">
-      <a href="#home" class="logo">Tolulope Orelesi</a>
-      <button id="menuToggle" aria-label="Toggle navigation">☰</button>
-      <ul id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- HEADER -->
+    <header class="fade-in">
+        <h1 class="logo">Tolulope Orelesi</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <main>
-    <!-- HOME -->
-    <section id="home" class="section hero reveal">
-      <div class="container">
-        <h1>Hi, I’m <span class="accent">Tolulope Orelesi</span>.</h1>
-        <p class="lead">
-          I’m a <strong>Network Security Engineer</strong> focused on next-generation firewalls, VPNs,
-          and cloud security. This portfolio shares my skills, projects, and resume.
-        </p>
-
-        <div class="cta">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#contact" class="btn secondary">Contact Me</a>
-        </div>
-
-        <!-- QR code -->
-        <div class="qr-wrap">
-          <h3>Scan to open my portfolio</h3>
-          <div id="qrcode" aria-label="QR code to this website"></div>
-        </div>
-      </div>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero slide-up">
+        <h2 class="title">Network Security Engineer</h2>
+        <p class="subtitle">Focused on Firewalls · VPN · Cloud Security · Threat Detection</p>
+        <a href="#about" class="btn">Explore My Work</a>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section reveal">
-      <div class="container">
-        <h2>About Me</h2>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section fade-in">
+        <h2 class="section-title">About Me</h2>
         <p>
-          I am a Network Security Engineer with a passion for emerging security solutions.
-          I work with next-generation firewalls, VPNs, and cloud security to protect critical systems.
-        </p>
-        <p>
-          I have experience configuring and managing Palo Alto firewalls, implementing GlobalProtect VPN
-          for secure remote access, and designing network segmentation with VLANs. I also work with AWS
-          security controls such as Security Groups and NACLs.
+            My name is <strong>Tolulope Orelesi</strong>. I am a Network Security Engineer skilled in securing enterprise networks through 
+            configuration of NGFW firewalls, VPN tunnels, VLAN segmentation, SSL decryption, and cloud security.
         </p>
 
-        <h3>Technical Skills</h3>
-        <ul class="pill-list">
-          <li>Palo Alto NGFW & GlobalProtect VPN</li>
-          <li>IPsec / SSL VPN</li>
-          <li>AWS Security Groups & NACLs</li>
-          <li>TCP/IP, BGP, OSPF, VLAN, NAT</li>
-          <li>Wireshark & network traffic analysis</li>
-          <li>CompTIA Security+</li>
-        </ul>
-      </div>
+        <div class="skills-grid">
+            <span>Firewall Security</span>
+            <span>Palo Alto NGFW</span>
+            <span>GlobalProtect VPN</span>
+            <span>SSL Decryption</span>
+            <span>BGP & OSPF</span>
+            <span>Network Segmentation</span>
+            <span>AWS Security</span>
+            <span>CompTIA Security+</span>
+        </div>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section alt reveal">
-      <div class="container">
-        <h2>Projects</h2>
-        <div id="projectGrid" class="grid"></div>
-        <p class="hint">
-          Each card links to GitHub and, if available, a live demo.
-        </p>
-      </div>
+    <section id="projects" class="section alt-bg slide-up">
+        <h2 class="section-title">Projects</h2>
+        <div id="projects-container" class="projects-grid"></div>
     </section>
 
     <!-- RESUME -->
-    <section id="resume" class="section reveal">
-      <div class="container">
-        <h2>Resume</h2>
-        <p>You can view or download my latest resume below.</p>
-        <div class="resume-actions">
-          <a class="btn primary" href="Tolulope_Orelesi_Resume.pdf" target="_blank" rel="noopener">
-            View Resume (PDF)
-          </a>
-          <a class="btn secondary" href="Tolulope_Orelesi_Resume.pdf" download>
-            Download Resume
-          </a>
-        </div>
+    <section id="resume" class="section fade-in">
+        <h2 class="section-title">Resume</h2>
+        <p>Download my updated resume below.</p>
 
-        <h3>Education</h3>
-        <ul>
-          <li>B.Sc. in Computer Technology – Bowie State University</li>
-          <li>A.S. in Information Technology – Prince George’s Community College</li>
-        </ul>
+        <a class="btn" href="Tolulope_Orelesi_Resume.pdf" download>Download Resume (PDF)</a>
 
-        <h3>Certification</h3>
-        <p>CompTIA Security+</p>
-      </div>
+        <h3>Scan QR Code</h3>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=https://horelesi.github.io/Portfolio-Website/" class="qr">
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section alt reveal">
-      <div class="container">
-        <h2>Contact</h2>
-        <p>
-          You can contact me using this form or by emailing
-          <a href="mailto:Orelesitolulope@gmail.com">Orelesitolulope@gmail.com</a>.
-        </p>
-        <form id="contactForm" action="mailto:Orelesitolulope@gmail.com" method="POST" enctype="text/plain">
-          <div class="grid two">
-            <label> Name
-              <input name="name" required />
-            </label>
-            <label> Email
-              <input type="email" name="email" required />
-            </label>
-          </div>
-          <label> Message
-            <textarea name="message" rows="5" required></textarea>
-          </label>
-          <button class="btn primary" type="submit">Send</button>
-        </form>
-        <p class="hint">
-          You can also chat with my portfolio bot using the 💬 button in the bottom-right corner.
-        </p>
-      </div>
+    <section id="contact" class="section slide-up">
+        <h2 class="section-title">Contact Me</h2>
+        <p>Email: <a href="mailto:Orelesitolulope@gmail.com">Orelesitolulope@gmail.com</a></p>
     </section>
-  </main>
 
-  <!-- FLOATING CHATBOT -->
-  <button id="chatToggle" class="chat-fab" aria-label="Open chatbot">💬</button>
+    <!-- CHATBOT -->
+    <button id="chatbot-btn">💬</button>
 
-  <div id="chatPanel" class="chat-panel" aria-hidden="true">
-    <header class="chat-header">
-      <strong>Portfolio Bot</strong>
-      <button id="chatClose" aria-label="Close chatbot">×</button>
-    </header>
-    <div id="chatBody" class="chat-body" role="log" aria-live="polite"></div>
-    <form id="chatForm" class="chat-input" autocomplete="off">
-      <input
-        id="chatText"
-        placeholder="Ask about my skills, projects, or availability…"
-        aria-label="Chat message"
-      />
-      <button type="submit">Send</button>
-    </form>
-  </div>
+    <div id="chatbot-box" class="chatbot hidden">
+        <div class="chat-header">
+            <h4>Portfolio Assistant</h4>
+            <button id="close-chat">✕</button>
+        </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <small>
-        © <span id="year"></span> Tolulope Orelesi ·
-        <a href="https://github.com/horelesi" target="_blank" rel="noopener">GitHub</a>
-      </small>
+        <div id="chat-messages" class="messages"></div>
+
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Ask me about Tolulope..." required>
+            <button>Send</button>
+        </form>
     </div>
-  </footer>
 
-  <!-- Scripts -->
-  <!-- QR code library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script src="projects.js"></script>
-  <script src="chatbot.js"></script>
-  <script src="main.js"></script>
+    <!-- JS -->
+    <script src="projects.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="main.js"></script>
+
 </body>
 </html>
-
