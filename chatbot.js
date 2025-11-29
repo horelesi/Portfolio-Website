@@ -1,35 +1,46 @@
-// Very simple FAQ-based chatbot for the portfolio
-function getBotReply(text) {
-  const q = text.toLowerCase();
+const icon = document.getElementById("chatbot-icon");
+const box = document.getElementById("chatbot-box");
+const body = document.getElementById("chat-body");
+const input = document.getElementById("chat-input");
 
-  if (q.includes("name") || q.includes("who are you")) {
-    return "My name is Tolulope Orelesi. I’m a Network Security Engineer.";
-  }
+icon.addEventListener("click", () => {
+    box.style.display = box.style.display === "flex" ? "none" : "flex";
+});
 
-  if (q.includes("skill") || q.includes("expertise") || q.includes("what do you do")) {
-    return "I work with next-generation firewalls (Palo Alto), GlobalProtect VPN, VLANs, AWS security, and packet analysis with Wireshark.";
-  }
+input.addEventListener("keypress", function(e){
+    if (e.key === "Enter") {
+        let user = input.value;
+        addMessage("You: " + user);
+        botReply(user);
+        input.value = "";
+    }
+});
 
-  if (q.includes("experience") || q.includes("work") || q.includes("job")) {
-    return "I currently support WMATA as a Network Security Engineer and previously assisted with security projects at S & C Consulting.";
-  }
+function addMessage(msg){
+    let p = document.createElement("p");
+    p.textContent = msg;
+    body.appendChild(p);
+    body.scrollTop = body.scrollHeight;
+}
 
-  if (q.includes("cert") || q.includes("security+")) {
-    return "I hold the CompTIA Security+ certification.";
-  }
+function botReply(text){
+    let reply = "";
 
-  if (q.includes("education") || q.includes("school") || q.includes("degree")) {
-    return "I earned a B.Sc. in Computer Technology from Bowie State University and an A.S. in Information Technology from Prince George’s Community College.";
-  }
+    text = text.toLowerCase();
 
-  if (q.includes("project") || q.includes("github")) {
-    return "You can see my Campus Helper Chatbot, this portfolio site, and my network security lab concept in the Projects section. Each card links to GitHub and any live demos.";
-  }
+    if (text.includes("hello") || text.includes("hi")){
+        reply = "Hello! How can I help you today?";
+    }
+    else if (text.includes("skills")){
+        reply = "I am skilled in Network Security, Firewalls (Palo Alto, ASA), VPNs, Wireshark, and Cloud Security.";
+    }
+    else if (text.includes("projects")){
+        reply = "You can view all my projects in the Projects section.";
+    }
+    else {
+        reply = "I'm not sure about that, but I can tell you about my skills, projects, or experience!";
+    }
 
-  if (q.includes("contact") || q.includes("email")) {
-    return "You can contact me through the Contact form or email me at Orelesitolulope@gmail.com.";
-  }
-
-  return "I can answer questions about my skills, projects, certifications, education, and how to contact me. Try asking, for example: 'What are your skills?'";
+    addMessage("Bot: " + reply);
 }
 
