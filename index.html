@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tolulope Orelesi Portfolio</title>
+  <!-- Google Font for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Tolulope Orelesi</h1> <!-- Name from resume -->
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#chatbot">Chatbot</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Network Security Engineer</h2>
+    <p>Passionate about emerging solutions in network security<!--:contentReference[oaicite:0]{index=0}--></p>
+    <p><a class="button" href="Tolulope_Orelesi_Resume.pdf" download>Download Resume</a></p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>My name is Tolulope Orelesi and I am a Network Security Engineer with a passion for emerging solutions in network security<!--:contentReference[oaicite:1]{index=1}-->.</p>
+    <p>I specialize in configuring, troubleshooting, and optimizing next-generation firewalls, VPNs, and security appliances to protect both on‑premises and cloud environments<!--:contentReference[oaicite:2]{index=2}-->.</p>
+    <p>Currently, I work at Washington Metropolitan Area Transit Authority (WMATA), where I lead the configuration and management of Palo Alto firewalls and implement network segmentation using VLANs<!--:contentReference[oaicite:3]{index=3}-->. Previously, I supported cybersecurity projects at S & C Consulting, assisting in secure AWS cloud architectures and conducting vulnerability assessments<!--:contentReference[oaicite:4]{index=4}-->. I am also CompTIA Security+ certified<!--:contentReference[oaicite:5]{index=5}-->.</p>
+    <h3>Technical Skills</h3>
+    <ul>
+      <li><strong>VPN & Remote Access:</strong> GlobalProtect, IPsec VPN, SSL VPN.</li>
+      <li><strong>Cloud Security:</strong> AWS Security Groups, AWS NACLs.</li>
+      <li><strong>Networking Protocols:</strong> TCP/IP, BGP, OSPF, VLAN, NAT.</li>
+    </ul>
+    <!-- Technical skills from resume:contentReference[oaicite:6]{index=6} -->
+    <p>Feel free to reach out via email: <a href="mailto:Orelesitolulope@gmail.com">Orelesitolulope@gmail.com</a></p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects & Accomplishments</h2>
+    <div id="projects-list"><!-- Projects will be loaded here by projects.js --></div>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <h3>Education</h3>
+    <ul>
+      <li>B.Sc. in Computer Technology – Bowie State University (2025)</li>
+      <li>A.S. in Information Technology – Prince George’s Community College (2020)</li>
+    </ul>
+    <!-- Education details:contentReference[oaicite:7]{index=7} -->
+    <h3>Certification</h3>
+    <p>CompTIA Security+<!--:contentReference[oaicite:8]{index=8}-->.</p>
+    <p><a class="button" href="Tolulope_Orelesi_Resume.pdf" download>Download Full Resume (PDF)</a></p>
+    <h3>Portfolio QR Code</h3>
+    <p>Scan the QR code to open this portfolio on your phone:</p>
+    <img id="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=YOUR_URL_HERE" alt="QR code to portfolio" />
+    <!-- Replace YOUR_URL_HERE with the live portfolio URL after publishing -->
+  </section>
+
+  <section id="chatbot">
+    <h2>Chat with Me</h2>
+    <div id="chat-container"></div>
+    <form id="chat-form">
+      <input type="text" id="chat-input" placeholder="Ask me about my background..." required />
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <script src="projects.js"></script>
+  <script src="chatbot.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
