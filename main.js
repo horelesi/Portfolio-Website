@@ -1,64 +1,86 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // YEAR IN FOOTER
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+// MAIN INTERACTIONS
 
-  // MOBILE NAV TOGGLE
+document.addEventListener("DOMContentLoaded", () => {
+  // Footer year
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Mobile menu toggle
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
+      const isOpen = navLinks.style.display === "flex";
+      navLinks.style.display = isOpen ? "none" : "flex";
     });
   }
 
-  // SCROLL REVEAL ANIMATION
-  const revealEls = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-  revealEls.forEach((el) => observer.observe(el));
+  // QR Code
+  const qrContainer = document.getElementById("qrcode");
+  if (qrContainer && typeof QRCode !== "undefined") {
+    new QRCode(qrContainer, {
+      text: window.location.href,
+      width: 140,
+      height: 140
+    });
+  }
 
-  // CHATBOT WIRING
+  // Chatbot UI
+  const chatFab = document.getElementById("chatToggle");
+  const chatPanel = document.getElementById("chatPanel");
+  const chatClose = document.getElementById("chatClose");
+  const chatBody = document.getElementById("chatBody");
   const chatForm = document.getElementById("chatForm");
-  const chatInput = document.getElementById("chatInput");
-  const chatMessages = document.getElementById("chatMessages");
+  const chatText = document.getElementById("chatText");
 
-  function addBubble(text, who) {
-    if (!chatMessages) return;
+  function addMessage(who, text) {
+    if (!chatBody) return;
     const div = document.createElement("div");
-    div.className = `chat-bubble ${who}`;
+    div.className = "msg " + who;
     div.textContent = text;
-    chatMessages.appendChild(div);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
   }
 
-  // Initial bot greeting
-  if (chatMessages) {
-    addBubble("Hi, I’m Tolulope’s Portfolio Bot. Ask me about his skills, projects, or experience.", "bot");
+  function openChat() {
+    if (!chatPanel) return;
+    chatPanel.style.display = "flex";
+    chatPanel.setAttribute("aria-hidden", "false");
+    if (chatBody && chatBody.childElementCount === 0) {
+      addMessage(
+        "bot",
+        "Hi! I’m your Portfolio Bot. Ask me about my skills, projects, or experience."
+      );
+    }
   }
 
-  if (chatForm && chatInput && chatMessages) {
+  function closeChat() {
+    if (!chatPanel) return;
+    chatPanel.style.display = "none";
+    chatPanel.setAttribute("aria-hidden", "true");
+  }
+
+  if (chatFab) {
+    chatFab.addEventListener("click", openChat);
+  }
+
+  if (chatClose) {
+    chatClose.addEventListener("click", closeChat);
+  }
+
+  if (chatForm && chatText) {
     chatForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const text = chatInput.value.trim();
+      const text = chatText.value.trim();
       if (!text) return;
-
-      addBubble(text, "user");
-      const reply = getBotReply(text);
-      addBubble(reply, "bot");
-      chatInput.value = "";
-      chatInput.focus();
+      addMessage("user", text);
+      chatText.value = "";
+      try {
+        const reply = getBotReply(text);
+        addMessage("bot", reply);
+      } catch (err) {
+        addMessage("bot", "Oops, something went wrong. Please try again.");
+      }
     });
   }
 });
