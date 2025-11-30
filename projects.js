@@ -1,56 +1,41 @@
-// ==========================
-//  PROJECT LIST
-// ==========================
-
+// Project data
 const projects = [
     {
         title: "Campus Helper Chatbot",
-        description: "IBM Watson Assistant chatbot hosted on GitHub Pages to help students with campus information.",
-        github: "https://github.com/horelesi/Campus-Helper-Chatbot",
-        demo: "https://horelesi.github.io/Campus-Helper-Chatbot/"
+        description: "IBM Watson Assistant chatbot hosted on GitHub Pages to assist students with campus information.",
+        github: "https://github.com/horelesi/Chatbot-website", 
+        live: "https://horelesi.github.io/Chatbot-website/"
     },
     {
         title: "Portfolio Website",
         description: "Responsive personal portfolio built with HTML, CSS, and JavaScript, featuring a chatbot and animations.",
         github: "https://github.com/horelesi/Portfolio-Website",
-        demo: "https://horelesi.github.io/Portfolio-Website/"
+        live: "https://horelesi.github.io/Portfolio-Website/"
     },
     {
         title: "Network Security Lab (Concept)",
         description: "Hands-on practice lab focusing on firewalls, VPNs, packet capture, and network analysis using Palo Alto and Wireshark.",
-        github: "https://github.com/horelesi/Network-Security-Lab",
-        demo: "#"
+        github: "https://github.com/horelesi", 
+        live: "#" // No demo yet — you can change this later
     }
 ];
 
-// ==========================
-//  RENDER PROJECT CARDS
-// ==========================
+// Load projects into the page
+const projectGrid = document.getElementById("projectGrid");
 
-function loadProjects() {
-    const grid = document.getElementById("projectGrid");
+projects.forEach(project => {
+    const card = document.createElement("div");
+    card.classList.add("card");
 
-    if (!grid) {
-        console.error("❌ projectGrid NOT FOUND in HTML.");
-        return;
-    }
+    card.innerHTML = `
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        
+        <div class="btn-group">
+            <a href="${project.github}" class="btn" target="_blank">GitHub</a>
+            <a href="${project.live}" class="btn dark" target="_blank">Live Demo</a>
+        </div>
+    `;
 
-    projects.forEach(proj => {
-        const card = document.createElement("div");
-        card.className = "card fade";
-
-        card.innerHTML = `
-            <h3>${proj.title}</h3>
-            <p>${proj.description}</p>
-            <div class="buttons">
-                <a href="${proj.github}" target="_blank" class="btn github">GitHub</a>
-                <a href="${proj.demo}" target="_blank" class="btn demo">Live Demo</a>
-            </div>
-        `;
-
-        grid.appendChild(card);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", loadProjects);
-
+    projectGrid.appendChild(card);
+});
