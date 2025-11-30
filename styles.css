@@ -1,133 +1,98 @@
-/* GENERAL */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    background: #f4f6fc;
-    color: #111;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #222;
 }
 
-.section {
-    padding: 80px 10%;
-    text-align: center;
-}
-
-/* NAVBAR */
-.navbar {
+header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 10%;
+    padding: 20px 40px;
     background: white;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo {
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
+    margin: 0;
 }
 
-.navbar ul {
-    display: flex;
-    list-style: none;
-}
-
-.navbar ul li a {
-    margin: 0 20px;
+nav a {
+    margin: 0 12px;
     text-decoration: none;
-    color: #111;
+    color: black;
     font-weight: bold;
 }
 
-.navbar ul li a:hover {
-    color: #007bff;
+section {
+    padding: 120px 40px 60px;
 }
 
-/* PROJECT CARDS */
-.project-card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    margin: 20px auto;
-    width: 70%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform .3s ease, box-shadow .3s;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.15);
-}
-
-/* BUTTONS */
-.btn {
-    background: #007bff;
-    border-radius: 25px;
-    padding: 10px 20px;
-    display: inline-block;
-    color: white;
-    margin: 10px;
-    text-decoration: none;
-}
-
-.btn.black {
-    background: #111;
-}
-
-/* CHATBOT */
-#chatbot-icon {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #007bff;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 22px;
-}
-
-#chatbot-box {
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    width: 300px;
-    background: white;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    display: none;
-    flex-direction: column;
-}
-
-#chat-header {
-    background: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-}
-
-#chat-body {
-    height: 250px;
-    overflow-y: auto;
-    padding: 10px;
-}
-
-#chat-input {
-    padding: 10px;
-    border: none;
-    border-top: 1px solid #ddd;
-    width: 100%;
-    outline: none;
-}
-
-/* ANIMATIONS */
 .fade {
     opacity: 0;
-    transform: translateY(20px);
-    transition: all .8s ease-out;
+    transform: translateY(30px);
+    transition: all 1.2s ease-in-out;
 }
 
-.fade.visible {
+.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+#home {
+    height: 80vh;
+    background: linear-gradient(to bottom right, #e0e7ff, #f0fdfa);
+    text-align: center;
+    padding-top: 140px;
+}
+
+.hero-title {
+    font-size: 42px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.btn-blue {
+    background: #3b82f6;
+    padding: 12px 25px;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-black {
+    background: black;
+    padding: 12px 25px;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.project-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    animation: slideUp 1s ease;
+}
+
+.qr-code {
+    width: 140px;
+    margin-top: 15px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
