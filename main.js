@@ -1,96 +1,100 @@
-// ---------- Reveal animations on scroll ----------
-const sections = document.querySelectorAll(".fade, .slide-up, .slide-left, .slide-right");
+document.addEventListener("DOMContentLoaded", () => {
+  // Year in footer
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-function reveal() {
-    sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 120) {
-            sec.classList.add("visible");
-        }
+  // Mobile nav toggle
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      const showing = navLinks.style.display === "flex";
+      navLinks.style.display = showing ? "none" : "flex";
     });
-}
-window.addEventListener("scroll", reveal);
-reveal();
+  }
 
-// ---------- Smooth Scrolling ----------
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", function (e) {
-        if (this.hash) {
-            e.preventDefault();
-            const target = document.querySelector(this.hash);
-            window.scrollTo({
-                top: target.offsetTop - 60,
-                behavior: "smooth"
-            });
-        }
+  // Render projects
+  if (typeof renderProjects === "function") {
+    renderProjects();
+  }
+
+  // Generate QR code image using current URL (no qr.png needed)
+  const qrImg = document.getElementById("qrImage");
+  if (qrImg) {
+    const url = window.location.href.split("#")[0]; // clean URL
+    qrImg.src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" +
+      encodeURIComponent(url);
+  }
+
+  // Chatbot UI
+  const chatFab = document.getElementById("chatToggle");
+  const chatPanel = document.getElementById("chatPanel");
+  const chatClose = document.getElementById("chatClose");
+  const chatBody = document.getElementById("chatBody");
+  const chatForm = document.getElementById("chatForm");
+  const chatText = document.getElementById("chatText");
+
+  function addMessage(who, text) {
+    const div = document.createElement("div");
+    div.className = "msg " + who;
+    div.textContent = text;
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  if (chatFab && chatPanel && chatBody && chatForm && chatText) {
+    chatFab.addEventListener("click", () => {
+      chatPanel.style.display = "flex";
+      chatPanel.setAttribute("aria-hidden", "false");
+      if (!chatBody.dataset.welcomed) {
+        addMessage(
+          "bot",
+          "Hi, I’m your portfolio bot. Ask me about Tolulope’s skills, projects, education, or certifications!"
+        );
+        chatBody.dataset.welcomed = "1";
+      }
     });
+
+    if (chatClose) {
+      chatClose.addEventListener("click", () => {
+        chatPanel.style.display = "none";
+        chatPanel.setAttribute("aria-hidden", "true");
+      });
+    }
+
+    chatForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const text = chatText.value.trim();
+      if (!text) return;
+      addMessage("user", text);
+      chatText.value = "";
+      const reply =
+        typeof getBotReply === "function"
+          ? getBotReply(text)
+          : "Sorry, I’m not configured yet.";
+      addMessage("bot", reply);
+    });
+  }
+
+  // Scroll reveal animations
+  const fades = document.querySelectorAll(".fade");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    fades.forEach(sec => observer.observe(sec));
+  } else {
+    // Fallback: simple on-load reveal
+    fades.forEach(sec => sec.classList.add("visible"));
+  }
 });
 
-// ---------- Mobile Menu Toggle ----------
-const navToggle = document.querySelector(".nav-toggle");
-const navMenu = document.querySelector("nav ul");
-
-if (navToggle) {
-    navToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
-    });
-}
-
-// ---------- Chatbot Floating Button ----------
-const botBtn = document.getElementById("chatbot-btn");
-const botWindow = document.getElementById("chatbot-box");
-const botClose = document.getElementById("chatbot-close");
-
-if (botBtn) {
-    botBtn.addEventListener("click", () => {
-        botWindow.classList.add("open");
-    });
-}
-if (botClose) {
-    botClose.addEventListener("click", () => {
-        botWindow.classList.remove("open");
-    });
-}
-
-// ---------- Simple Built-in Portfolio Chatbot ----------
-const botMessages = document.getElementById("bot-messages");
-const botSend = document.getElementById("bot-send");
-const botInput = document.getElementById("bot-input");
-
-function botReply(text) {
-    const msg = document.createElement("div");
-    msg.className = "bot-msg";
-    msg.innerText = text;
-    botMessages.appendChild(msg);
-    botMessages.scrollTop = botMessages.scrollHeight;
-}
-
-if (botSend) {
-    botSend.addEventListener("click", () => {
-        const userText = botInput.value.trim();
-        if (!userText) return;
-
-        const userMsg = document.createElement("div");
-        userMsg.className = "user-msg";
-        userMsg.innerText = userText;
-        botMessages.appendChild(userMsg);
-
-        botInput.value = "";
-
-        // Replies
-        let reply = "I'm here to help!";
-
-        if (/hello|hi|hey/i.test(userText)) reply = "Hello! How can I assist you today?";
-        else if (/skills/i.test(userText)) reply = "My key skills include Palo Alto firewalls, VPNs, Wireshark, SIEM, threat analysis, and network troubleshooting.";
-        else if (/experience|work/i.test(userText)) reply = "I have hands-on experience working with Next-Gen Firewalls, VPNs, network monitoring, and security tools.";
-        else if (/projects?/i.test(userText)) reply = "You can view my full projects on the Projects page!";
-        else if (/resume/i.test(userText)) reply = "You can download my resume on the Resume page.";
-        else if (/contact/i.test(userText)) reply = "You can reach me anytime at Orelseitolu@gmail.com.";
-        else reply = "I'm not sure about that yet, but I'm learning more every day!";
-
-        setTimeout(() => botReply(reply), 500);
-    });
-}
-
-// ---------- Theme Animation Fade-in ----------
-document.body.classList.add("page-loaded");
