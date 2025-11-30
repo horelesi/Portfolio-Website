@@ -1,34 +1,63 @@
-function getBotReply(message) {
-  const text = message.toLowerCase();
+// Simple rule-based FAQ chatbot about Tolulope
 
-  if (text.includes("name") || text.includes("who are you")) {
-    return "I’m Tolulope’s Portfolio Bot. I can tell you about his skills, projects, and background.";
+const botFAQ = [
+  {
+    patterns: ["name", "who are you", "who is this"],
+    answer:
+      "I’m Tolulope Orelesi, a Network Security Engineer focused on firewalls, VPNs, and cloud/network security."
+  },
+  {
+    patterns: ["skills", "tech stack", "what can you do", "tools"],
+    answer:
+      "My core skills include Palo Alto NGFW, GlobalProtect VPN, TCP/IP, BGP, OSPF, VLAN, NAT, AWS networking (Security Groups / NACLs), Wireshark, and packet analysis."
+  },
+  {
+    patterns: ["experience", "background", "work history", "what experience"],
+    answer:
+      "I have hands-on experience securing networks with next-generation firewalls, VPNs, VLAN-based segmentation, and AWS cloud environments. I’ve worked on projects like GlobalProtect deployments, SSL decryption, and network segmentation."
+  },
+  {
+    patterns: ["project", "projects", "portfolio", "what have you built"],
+    answer:
+      "You can check the Projects section for my Campus Helper Chatbot, this Portfolio Website, and my Network Security Lab concept. Each card links to GitHub and live demos where available."
+  },
+  {
+    patterns: ["certification", "certifications", "cert", "security+"],
+    answer: "I hold the CompTIA Security+ certification."
+  },
+  {
+    patterns: ["education", "school", "degree", "university", "college"],
+    answer:
+      "I have a background in computer and information technology, with focus areas in networking and security."
+  },
+  {
+    patterns: ["availability", "job", "hire", "open to work", "role"],
+    answer:
+      "I’m open to discussing full-time roles and opportunities related to network and security engineering. Feel free to reach out via the Contact section or email."
+  },
+  {
+    patterns: ["contact", "email", "reach you", "how can i contact"],
+    answer: "You can contact me directly at Orelesitolulope@gmail.com or use the form in the Contact section."
   }
+];
 
-  if (text.includes("skill") || text.includes("tools") || text.includes("stack")) {
-    return "Tolulope’s key skills include next-gen firewalls (Palo Alto), GlobalProtect VPN, AWS security, VLANs, NAT, BGP/OSPF, and Wireshark analysis.";
-  }
-
-  if (text.includes("experience") || text.includes("background") || text.includes("job")) {
-    return "He works as a Network Security Engineer, focusing on firewall configuration, VPNs, and securing cloud/on-prem networks.";
-  }
-
-  if (text.includes("project")) {
-    return "You can see example projects like the Campus Helper Chatbot, this Portfolio Website, and a Network Security Lab concept in the Projects section.";
-  }
-
-  if (text.includes("education") || text.includes("school") || text.includes("degree")) {
-    return "Tolulope holds a B.Sc. in Computer Technology and an A.S. in Information Technology, and he is CompTIA Security+ certified.";
-  }
-
-  if (text.includes("contact") || text.includes("email") || text.includes("reach")) {
-    return "You can contact him at Orelesitolulope@gmail.com or use the email button in the Contact section.";
-  }
-
-  if (text.includes("available") || text.includes("hire") || text.includes("opportunit")) {
-    return "He is open to discussing roles and opportunities in network security and related areas.";
-  }
-
-  return "I can answer questions about his skills, projects, experience, education, and how to contact him. Try asking: “What are your skills?”";
+function normalizeText(text) {
+  return text.trim().toLowerCase();
 }
 
+function getBotReply(userText) {
+  const text = normalizeText(userText);
+
+  for (const item of botFAQ) {
+    for (const pattern of item.patterns) {
+      if (text.includes(pattern)) {
+        return item.answer;
+      }
+    }
+  }
+
+  return (
+    "I can answer questions about my skills, experience, projects, education, and availability. " +
+    "Try asking something like: “What are your skills?” or “Tell me about your projects.”"
+  );
+}
