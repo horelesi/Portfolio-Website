@@ -1,3 +1,7 @@
+// ==========================
+//  PROJECT LIST
+// ==========================
+
 const projects = [
     {
         title: "Campus Helper Chatbot",
@@ -7,34 +11,46 @@ const projects = [
     },
     {
         title: "Portfolio Website",
-        description: "Responsive portfolio built with HTML, CSS, and JavaScript including animations, chatbot, and QR code.",
+        description: "Responsive personal portfolio built with HTML, CSS, and JavaScript, featuring a chatbot and animations.",
         github: "https://github.com/horelesi/Portfolio-Website",
         demo: "https://horelesi.github.io/Portfolio-Website/"
     },
     {
         title: "Network Security Lab (Concept)",
-        description: "Hands-on network lab focusing on VPNs, firewalls, routing, and inspection tools like Palo Alto and Wireshark.",
-        github: "https://github.com/horelesi",
-        demo: ""
+        description: "Hands-on practice lab focusing on firewalls, VPNs, packet capture, and network analysis using Palo Alto and Wireshark.",
+        github: "https://github.com/horelesi/Network-Security-Lab",
+        demo: "#"
     }
 ];
 
-function loadProjects() {
-    const projectContainer = document.getElementById("project-list");
+// ==========================
+//  RENDER PROJECT CARDS
+// ==========================
 
-    projects.forEach(project => {
+function loadProjects() {
+    const grid = document.getElementById("projectGrid");
+
+    if (!grid) {
+        console.error("❌ projectGrid NOT FOUND in HTML.");
+        return;
+    }
+
+    projects.forEach(proj => {
         const card = document.createElement("div");
-        card.classList.add("project-card", "fade");
+        card.className = "card fade";
 
         card.innerHTML = `
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <a class="btn github" href="${project.github}" target="_blank">GitHub</a>
-            ${project.demo ? `<a class="btn demo" href="${project.demo}" target="_blank">Live Demo</a>` : ""}
+            <h3>${proj.title}</h3>
+            <p>${proj.description}</p>
+            <div class="buttons">
+                <a href="${proj.github}" target="_blank" class="btn github">GitHub</a>
+                <a href="${proj.demo}" target="_blank" class="btn demo">Live Demo</a>
+            </div>
         `;
 
-        projectContainer.appendChild(card);
+        grid.appendChild(card);
     });
 }
 
 document.addEventListener("DOMContentLoaded", loadProjects);
+
